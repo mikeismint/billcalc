@@ -9,40 +9,41 @@
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
   <!-- <link href="./styles/reset.css" rel="stylesheet" type="text/css" /> -->
-	<link href="./styles/normalize.css" rel="stylesheet" type="text/css" />
+  <link href="./styles/normalize.css" rel="stylesheet" type="text/css" />
 	<link href="./styles/main.css" rel="stylesheet" type="text/css" />
   <script language="JavaScript" src="./scripts/calculate.js"></script>
+  <script language="JavaScript" src="./scripts/validation.js"></script>
 </head>
 
 <body>
 <h1>Mikes Billing Calculator</h1>
 
-<form id="billform">
+<form id="billform" onsubmit="return validate()" action="javascript:calc();">
   <label for="tvcost">TV Package Price</label>
   <input id="tvcost" type="text" value="Enter TV price only"
-    onfocus=" if(this.value == 'Enter TV price only') { this.value = ''; }"
+    onfocus=" if(this.value != '') { this.value = ''; }"
     onblur="  if(this.value == '') { this.value = 'Enter TV price only';}"
   />
 
   <label for="tvdate">TV install date</label>
   <input id="tvdate" type="text" value="dd/mm/yy"
-    onfocus=" if(this.value == 'dd/mm/yy') { this.value = ''; }"
+    onfocus=" if(this.value != '') { this.value = ''; }"
     onblur="  if(this.value == '') { this.value = 'dd/mm/yy';}"
   />
 
   <label for="bbcost">Sky Talk & Broadband price</label>
   <input id="bbcost" type="text" value="inc Line Rental"
-    onfocus=" if(this.value == 'inc Line Rental') { this.value = ''; }"
+    onfocus=" if(this.value != '') { this.value = ''; }"
     onblur="  if(this.value == '') { this.value = 'inc Line Rental';}"
   />
 
   <label for="bbdate">PL & BB Install date</label>
   <input id="bbdate" type="text" value="dd/mm/yy"
-    onfocus=" if(this.value == 'dd/mm/yy') { this.value = ''; }"
+    onfocus=" if(this.value != '') { this.value = ''; }"
     onblur="  if(this.value == '') { this.value = 'dd/mm/yy';}"
   />
 
-  <input id="submit" type="button" value="GO!" onclick="calc()" />
+  <input id="submit" type="submit" value="GO!" />
 </form>
 
 <div id="results">
