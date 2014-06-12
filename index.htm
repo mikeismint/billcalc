@@ -11,14 +11,16 @@
   <!-- <link href="./styles/reset.css" rel="stylesheet" type="text/css" /> -->
   <link href="./styles/normalize.css" rel="stylesheet" type="text/css" />
 	<link href="./styles/main.css" rel="stylesheet" type="text/css" />
+  <script language="JavaScript" src="./scripts/functions.js"></script>
+  <script language="JavaScript" src="./scripts/Form.js"></script>
   <script language="JavaScript" src="./scripts/calculate.js"></script>
-  <script language="JavaScript" src="./scripts/validation.js"></script>
+  <script language="JavaScript" src="./scripts/main.js"></script>
 </head>
 
 <body>
 <h1>Mikes Billing Calculator</h1>
 
-<form id="billform" onsubmit="return validate()" action="javascript:calc();">
+<form id="billform" action="javascript:calc();">
   <label for="tvcost">TV Package Price</label>
   <input id="tvcost" type="text" value="Enter TV price only"
     onfocus=" if(this.value != '') { this.value = ''; }"

@@ -4,9 +4,9 @@ function addEvent(to, type, fn) {
    *                fn is the funtion to be ran
    * Postconditions: Creates new event listener function */
  
-  if (document.addEventListener) {
+  if(document.addEventListener) {
     to.addEventListener(type, fn, false);
-  } else if (document.attachEvent) {
+  } else if(document.attachEvent) {
     to.attachEvent('on'+type, fn);
   } else {
     to['on'+type] = fn;
