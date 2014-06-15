@@ -58,6 +58,7 @@ form input {
 
 .valid {
   border: 2px solid green;
+  background-color: #d5fdd5;
 }
 
 

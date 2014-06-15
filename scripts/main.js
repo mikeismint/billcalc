@@ -30,7 +30,7 @@ addEvent(window, 'load', function() {
   checkForm();
   addEvent(myForm, 'keyup', checkForm);
   addEvent(myForm, 'submit', checkForm);
-});
+}); /*** addEvent ***/
 
 function displayResults() {
 
@@ -51,4 +51,4 @@ function displayResults() {
 function reset() {
     document.getElementById('billform').style.display = 'block';
     document.getElementById('results').style.display = 'none';
-};
+}; /*** reset ***/
