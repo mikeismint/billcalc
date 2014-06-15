@@ -15,6 +15,7 @@ addEvent(window, 'load', function() {
           Skybill.BB.cost=inputs[2].value;
           if (Form.validateDate(inputs[3])) {
             Skybill.BB.inDate=inputs[3].value;
+            Skybill.prefBillDate=inputs[4].value;
 
             submitbutton.disabled = false;
             return true;
@@ -52,7 +53,6 @@ addEvent(window, 'load', function() {
   addEvent(inputs[3], 'blur', function() {
     if (this.value === '') { this.value = 'dd/mm/yy'; }
   });
-
 
   addEvent(myForm, 'keyup', checkForm);
   addEvent(myForm, 'submit', checkForm);
