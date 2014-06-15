@@ -11,12 +11,12 @@
 	<meta name="description" content="" />
   <link href="./styles/normalize.css" rel="stylesheet" type="text/css" />
 	<link href="./styles/main.css" rel="stylesheet" type="text/css" />
-  <script language="JavaScript" src="./scripts/functions.js"></script>
-  <script language="JavaScript" src="./scripts/Form.js"></script>
-  <script language="JavaScript" src="./scripts/Skybill.js"></script>
-  <script language="JavaScript" src="./scripts/main.js"></script>
+  <script type="text/javascript" src="./scripts/functions.js"></script>
+  <script type="text/javascript" src="./scripts/Form.js"></script>
+  <script type="text/javascript" src="./scripts/Skybill.js"></script>
+  <script type="text/javascript" src="./scripts/main.js"></script>
   <!-- Google Analytics code -->
-  <script>
+  <script  type="text/javascript">
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)}, i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -32,28 +32,19 @@
 
 <form id="billform" action="javascript:displayResults();">
   <label for="tvcost">TV Package Price</label>
-  <input id="tvcost" type="text" value="Enter TV price only"
-    onfocus=" if(this.value != '') { this.value = ''; }"
-    onblur="  if(this.value == '') { this.value = 'Enter TV price only';}"
-  />
+  <input id="tvcost" type="text" value="Enter TV price only" />
 
   <label for="tvdate">TV install date</label>
-  <input id="tvdate" type="text" value="dd/mm/yy"
-    onfocus=" if(this.value != '') { this.value = ''; }"
-    onblur="  if(this.value == '') { this.value = 'dd/mm/yy';}"
-  />
+  <input id="tvdate" type="text" value="dd/mm/yy" />
 
   <label for="bbcost">Sky Talk & Broadband price</label>
-  <input id="bbcost" type="text" value="inc Line Rental"
-    onfocus=" if(this.value != '') { this.value = ''; }"
-    onblur="  if(this.value == '') { this.value = 'inc Line Rental';}"
-  />
+  <input id="bbcost" type="text" value="inc Line Rental" />
 
   <label for="bbdate">PL & BB Install date</label>
-  <input id="bbdate" type="text" value="dd/mm/yy"
-    onfocus=" if(this.value != '') { this.value = ''; }"
-    onblur="  if(this.value == '') { this.value = 'dd/mm/yy';}"
-  />
+  <input id="bbdate" type="text" value="dd/mm/yy" />
+
+  <label for="custdate">Prefered Billing Date (optional)</label>
+  <input id="custdate" type="text" value="1-28" />
 
   <input id="submit" type="submit" value="GO!" />
 </form>
@@ -78,7 +69,7 @@
     <div class="billcost" name="billcost"> <!-- content from displayResults() script --> </div>
     <div class="billdate" name="billdate"> <!-- content from displayResults() script --> </div>
   </div> <!-- billdetails -->
-  <input id="reset" type="submit" value="Reset" onclick="reset()" />
+  <input id="reset" type="button" value="Reset" />
 </div> <!-- results -->
 
 </body>
