@@ -1,12 +1,12 @@
 addEvent(window, 'load', function() {
 
   var myForm = document.getElementById('billform');
+  var inputs = myForm.getElementsByTagName('input');
   var submitbutton = Form.getSubmit('billform');
   submitbutton.disabled = 'disabled';
 
   function checkForm() {
-    var inputs = myForm.getElementsByTagName('input');
-
+    //var inputs = myForm.getElementsByTagName('input');
     if (Form.validateCurrency(inputs[0])) {
       Skybill.TV.cost=inputs[0].value;
       if (Form.validateDate(inputs[1])) {
@@ -27,10 +27,39 @@ addEvent(window, 'load', function() {
     return false;
   }; /*** checkForm ***/
 
-  checkForm();
+  function reset() {
+      document.getElementById('billform').style.display = 'block';
+      document.getElementById('results').style.display = 'none';
+  }; /*** reset ***/
+
+  for (var i = 0; i < inputs.length; i++) {
+    addEvent(inputs[i], 'focus', function() {
+      if (this.value != '' ) {
+        this.value = '';
+      }
+    });
+  } /*** for ***/
+
+  addEvent(inputs[0], 'blur', function() {
+    if (this.value === '') { this.value = 'Enter TV price only'; }
+  });
+  addEvent(inputs[1], 'blur', function() {
+    if (this.value === '') { this.value = 'dd/mm/yy'; }
+  });
+  addEvent(inputs[2], 'blur', function() {
+    if (this.value === '') { this.value = 'inc. Line Rental'; }
+  });
+  addEvent(inputs[3], 'blur', function() {
+    if (this.value === '') { this.value = 'dd/mm/yy'; }
+  });
+
+
   addEvent(myForm, 'keyup', checkForm);
   addEvent(myForm, 'submit', checkForm);
-}); /*** addEvent ***/
+  addEvent(document.getElementById('reset'), 'click', reset);
+
+  checkForm();
+}); /*** addEvent - window.onload ***/
 
 function displayResults() {
 
@@ -48,7 +77,3 @@ function displayResults() {
   document.getElementById('results').style.display = 'block';
 }; /*** displayResults ***/
 
-function reset() {
-    document.getElementById('billform').style.display = 'block';
-    document.getElementById('results').style.display = 'none';
-}; /*** reset ***/
