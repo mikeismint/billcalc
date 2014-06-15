@@ -1,6 +1,6 @@
 var Skybill = {
 
-  /********************* PROPERTIES *********************/
+  /********************* USER DEFINED PROPERTIES *********************/
   TV: {
     cost: '',
     inDate: '',
@@ -13,13 +13,14 @@ var Skybill = {
     name: 'Sky Talk & Broadband Price',
   },
 
-  /********************* HELPER FUNCTIONS *********************/
-  // TODO - Make Private if possible
+  prefBillDate: '',
 
+  /********************* HELPER FUNCTIONS *********************/
   parseDate:function (dateStr) {
     /* Precondition: dateStr is a string in the format dd/mm/yy or dd/mm/yyyy
      * Postcondition: returns JavaScript Date instance */
-    var dateParts = dateStr.split(/[/\,-]/);
+    var re = /[/\,-]/;
+    var dateParts = dateStr.split(re);
     if (dateParts[2].length == 2) {
       dateParts[2] = '20' + dateParts[2];
     };
@@ -83,7 +84,12 @@ var Skybill = {
     },
     date:function() {
       var d = Skybill.parseDate(Skybill.TV.inDate);
-      d.setMonth(d.getMonth()+1);
+      if (Skybill.recBillDate() < d.getDate()) {
+        d.setMonth(d.getMonth()+2);
+      } else {
+        d.setMonth(d.getMonth()+1);
+      };
+      d.setDate(Skybill.recBillDate());
       return Skybill.dateToString(d);
     },
   },
@@ -93,10 +99,24 @@ var Skybill = {
       return (+Skybill.TV.cost + +Skybill.BB.cost).toFixed(2);
     },
     date:function() {
-      var d = Skybill.parseDate(Skybill.TV.inDate);
-      d.setMonth(d.getMonth()+2);
+      var d = Skybill.parseDate(Skybill.secondBill.date());
+      d.setMonth(d.getMonth()+1);
       return Skybill.dateToString(d);
     },
+  },
+
+  recBillDate:function() {
+    var d = Skybill.parseDate(Skybill.TV.inDate);
+    d = d.getDate();
+    if (Skybill.prefBillDate !== '') {
+      return Skybill.prefBillDate;
+    }
+    switch (d) {
+      case 29: return '26';
+      case 30: return '27';
+      case 31: return '28';
+      default: return d.toString();
+    }
   },
 
 }
