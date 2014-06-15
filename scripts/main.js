@@ -27,10 +27,26 @@ addEvent(window, 'load', function() {
     return false;
   }; /*** checkForm ***/
 
-  checkForm();
+  function reset() {
+      document.getElementById('billform').style.display = 'block';
+      document.getElementById('results').style.display = 'none';
+  }; /*** reset ***/
+
+  var inputs = myForm.getElementsByTagName('input');
+  for (var i = 0; i < inputs.length; i++) {
+    addEvent(inputs[i], 'focus', function() {
+      if (this.value != '' ) {
+        this.value = '';
+      }
+    });
+  };
+
   addEvent(myForm, 'keyup', checkForm);
   addEvent(myForm, 'submit', checkForm);
-}); /*** addEvent ***/
+  addEvent(document.getElementById('reset'), 'click', reset);
+
+  checkForm();
+}); /*** addEvent - window.onload ***/
 
 function displayResults() {
 
@@ -48,7 +64,3 @@ function displayResults() {
   document.getElementById('results').style.display = 'block';
 }; /*** displayResults ***/
 
-function reset() {
-    document.getElementById('billform').style.display = 'block';
-    document.getElementById('results').style.display = 'none';
-}; /*** reset ***/
