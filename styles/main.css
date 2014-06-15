@@ -36,6 +36,15 @@ h3 {
   margin: 0;
 }
 
+.version {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  margin: 1px;
+  text-align: right;
+  font-size: 0.7em;
+  color: #555;
+}
 
 form input {
   width: 98%;
