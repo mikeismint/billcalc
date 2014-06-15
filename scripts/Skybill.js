@@ -1,10 +1,6 @@
 var Skybill = {
 
-<<<<<<< HEAD
-  /********************* PROPERTIES *********************/
-=======
   /********************* USER DEFINED PROPERTIES *********************/
->>>>>>> master
   TV: {
     cost: '',
     inDate: '',
@@ -17,15 +13,6 @@ var Skybill = {
     name: 'Sky Talk & Broadband Price',
   },
 
-<<<<<<< HEAD
-  /********************* HELPER FUNCTIONS *********************/
-  // TODO - Make Private if possible
-
-  parseDate:function (dateStr) {
-    /* Precondition: dateStr is a string in the format dd/mm/yy or dd/mm/yyyy
-     * Postcondition: returns JavaScript Date instance */
-    var dateParts = dateStr.split(/[/\,-]/);
-=======
   prefBillDate: '',
 
   /********************* HELPER FUNCTIONS *********************/
@@ -34,7 +21,6 @@ var Skybill = {
      * Postcondition: returns JavaScript Date instance */
     var re = /[/\,-]/;
     var dateParts = dateStr.split(re);
->>>>>>> master
     if (dateParts[2].length == 2) {
       dateParts[2] = '20' + dateParts[2];
     };
@@ -98,16 +84,12 @@ var Skybill = {
     },
     date:function() {
       var d = Skybill.parseDate(Skybill.TV.inDate);
-<<<<<<< HEAD
-      d.setMonth(d.getMonth()+1);
-=======
       if (Skybill.recBillDate() < d.getDate()) {
         d.setMonth(d.getMonth()+2);
       } else {
         d.setMonth(d.getMonth()+1);
       };
       d.setDate(Skybill.recBillDate());
->>>>>>> master
       return Skybill.dateToString(d);
     },
   },
@@ -117,19 +99,12 @@ var Skybill = {
       return (+Skybill.TV.cost + +Skybill.BB.cost).toFixed(2);
     },
     date:function() {
-<<<<<<< HEAD
-      var d = Skybill.parseDate(Skybill.TV.inDate);
-      d.setMonth(d.getMonth()+2);
-=======
       var d = Skybill.parseDate(Skybill.secondBill.date());
       d.setMonth(d.getMonth()+1);
->>>>>>> master
       return Skybill.dateToString(d);
     },
   },
 
-<<<<<<< HEAD
-=======
   recBillDate:function() {
     var d = Skybill.parseDate(Skybill.TV.inDate);
     d = d.getDate();
@@ -144,6 +119,5 @@ var Skybill = {
     }
   },
 
->>>>>>> master
 }
 
