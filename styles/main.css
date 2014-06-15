@@ -87,5 +87,5 @@ form label {
 }
 
 .billcost:before {
-  content: '£';
+  content: '\00A3';
 }

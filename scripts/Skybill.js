@@ -20,6 +20,9 @@ var Skybill = {
     /* Precondition: dateStr is a string in the format dd/mm/yy or dd/mm/yyyy
      * Postcondition: returns JavaScript Date instance */
     var dateParts = dateStr.split(/[/\,-]/);
+    if (dateParts[2].length == 2) {
+      dateParts[2] = '20' + dateParts[2];
+    };
 
     //new Date(year, month, day)
     return new Date(dateParts[2], dateParts[1]-1, dateParts[0]);
@@ -34,6 +37,7 @@ var Skybill = {
 
     if (day.length == 1) { day = '0' + day; }
     if (month.length == 1 ) { month = '0' + month; }
+    year = '20' + year;
 
     return [day, month, year].join('/');
   },
@@ -41,10 +45,10 @@ var Skybill = {
   dayDiff:function (earlier, later) {
     /* Precondition: Both parameters are Date strings as dd/mm/yyyy
      * Postcondition: returns number of days between the dates as an integer */
-    var dEarly = parseDate(earlier);
-    var dLate = parseDate(later);
+    var dEarly = Skybill.parseDate(earlier);
+    var dLate = Skybill.parseDate(later);
     var msInDay = 1000*60*60*24;  // Milliseconds in a day (24 hours)
-    var diff = (dEarly - dLate);  // Diference in Milliseconds
+    var diff = (dLate - dEarly);  // Difference in Milliseconds
 
     return Math.floor(diff/msInDay);
   },
@@ -53,7 +57,7 @@ var Skybill = {
     /* Precondition: amount is an integer representing normal full month cost
      *               days is the number of days cost to be calculated
      * Postcondition: Returns cost for required days as an integer */
-     var costPerDay = (cost * 12) / 365;
+     var costPerDay = (amount * 12) / 365;
 
      return (costPerDay * days);
   },
@@ -61,36 +65,37 @@ var Skybill = {
   /********************* PUBLIC METHODS *********************/
 
   firstBill: {
-    cost:function {
-      return (+TV.cost).toFixed(2);
+    costs:function() {
+      return (+Skybill.TV.cost).toFixed(2);
     },
-    date:function {
-      var d = parseDate(TV.inDate);
+    date:function() {
+      var d = Skybill.parseDate(Skybill.TV.inDate);
       d.setDate(d.getDate()+14);
-      return dateToString(d);
+      return Skybill.dateToString(d);
     },
   },
 
   secondBill: {
-    cost:function {
-      var pr = proRata(BB.cost, dayDiff(BB.inDate, secondBill.date));
-      return (+TV.cost + +BB.cost + +pr).toFixed(2);
+    cost:function() {
+      var dd = Skybill.dayDiff(Skybill.BB.inDate, this.date())
+      var pr = Skybill.proRata(Skybill.BB.cost, dd);
+      return (+Skybill.TV.cost + +Skybill.BB.cost + +pr).toFixed(2);
     },
-    date:function {
-      var d = parseDate(TV.inDate);
+    date:function() {
+      var d = Skybill.parseDate(Skybill.TV.inDate);
       d.setMonth(d.getMonth()+1);
-      return dateToString(d);
+      return Skybill.dateToString(d);
     },
   },
 
   thirdBill: {
-    cost:function {
-      return (+TV.cost + +BB.cost).toFixed(2);
+    cost:function() {
+      return (+Skybill.TV.cost + +Skybill.BB.cost).toFixed(2);
     },
-    date:function {
-      var d = parseDate(TV.inDate);
+    date:function() {
+      var d = Skybill.parseDate(Skybill.TV.inDate);
       d.setMonth(d.getMonth()+2);
-      return dateToString(d);
+      return Skybill.dateToString(d);
     },
   },
 

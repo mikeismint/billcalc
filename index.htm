@@ -5,24 +5,22 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="application/xhtml+xml" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 	<title>Sky billing calculator</title>
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
-  <!-- <link href="./styles/reset.css" rel="stylesheet" type="text/css" /> -->
   <link href="./styles/normalize.css" rel="stylesheet" type="text/css" />
 	<link href="./styles/main.css" rel="stylesheet" type="text/css" />
   <script language="JavaScript" src="./scripts/functions.js"></script>
   <script language="JavaScript" src="./scripts/Form.js"></script>
   <script language="JavaScript" src="./scripts/Skybill.js"></script>
-  <script language="JavaScript" src="./scripts/calculate.js"></script>
   <script language="JavaScript" src="./scripts/main.js"></script>
 </head>
 
 <body>
 <h1>Mikes Billing Calculator</h1>
 
-<form id="billform" action="javascript:calc();">
+<form id="billform" action="javascript:displayResults();">
   <label for="tvcost">TV Package Price</label>
   <input id="tvcost" type="text" value="Enter TV price only"
     onfocus=" if(this.value != '') { this.value = ''; }"
@@ -55,22 +53,22 @@
 
   <div class="billdetails clearfix">
     <h3>First Bill</h3>
-    <div class="billcost" name="billcost"> <!-- content from calc() script --> </div>
-    <div class="billdate" name="billdate"> <!-- content from calc() script --> </div>
+    <div class="billcost" name="billcost"> <!-- content from displayResults() script --> </div>
+    <div class="billdate" name="billdate"> <!-- content from displayResults() script --> </div>
   </div> <!-- billdetails -->
 
   <div class="billdetails clearfix">
     <h3>Second Bill</h3>
-    <div class="billcost" name="billcost"> <!-- content from calc() script --> </div>
-    <div class="billdate" name="billdate"> <!-- content from calc() script --> </div>
+    <div class="billcost" name="billcost"> <!-- content from displayResults() script --> </div>
+    <div class="billdate" name="billdate"> <!-- content from displayResults() script --> </div>
   </div> <!-- billdetails -->
 
   <div class="billdetails clearfix">
     <h3>Third Bill</h3>
-    <div class="billcost" name="billcost"> <!-- content from calc() script --> </div>
-    <div class="billdate" name="billdate"> <!-- content from calc() script --> </div>
+    <div class="billcost" name="billcost"> <!-- content from displayResults() script --> </div>
+    <div class="billdate" name="billdate"> <!-- content from displayResults() script --> </div>
   </div> <!-- billdetails -->
-  <input id="submit" type="button" value="Reset" onclick="reset()" />
+  <input id="reset" type="submit" value="Reset" onclick="reset()" />
 </div> <!-- results -->
 
 </body>
