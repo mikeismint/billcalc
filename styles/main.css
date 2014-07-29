@@ -1,0 +1,140 @@
+/* line 9, ../src/styles/main.scss */
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  content: "";
+  clear: both;
+  height: 0;
+}
+
+/* line 17, ../src/styles/main.scss */
+body {
+  background-color: #daffca;
+  color: #343ceb;
+  font-family: "Oswald", "Century Gothic", "Gill Sans", Sans-serif;
+}
+
+/* line 23, ../src/styles/main.scss */
+h1, h2, h3 {
+  text-align: center;
+  margin: 0;
+}
+
+/* line 28, ../src/styles/main.scss */
+h1 {
+  font-size: 1.8em;
+}
+
+/* line 29, ../src/styles/main.scss */
+h2 {
+  font-size: 1.3em;
+}
+
+/* line 30, ../src/styles/main.scss */
+h3 {
+  font-size: 1.1em;
+}
+
+/* line 32, ../src/styles/main.scss */
+#header {
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+  width: 100%;
+  color: #daffca;
+  background-color: #080f9e;
+}
+/* line 39, ../src/styles/main.scss */
+#header .version {
+  margin: -15px 5px 0 0;
+  text-align: right;
+  font-size: 0.5em;
+}
+
+/* line 46, ../src/styles/main.scss */
+form {
+  margin: 0 auto;
+  width: 90%;
+}
+/* line 50, ../src/styles/main.scss */
+form label {
+  font-size: 0.9em;
+  letter-spacing: 1px;
+}
+/* line 55, ../src/styles/main.scss */
+form input {
+  width: 98%;
+  margin-bottom: 10px;
+  padding: 5px 2px;
+  color: #343ceb;
+  font-size: 0.8em;
+  text-align: center;
+  border-color: #343ceb;
+}
+/* line 65, ../src/styles/main.scss */
+form #submit {
+  width: 40%;
+  margin-right: 1%;
+  float: right;
+  font-weight: 700;
+  color: #46b816;
+  border: none;
+  border-radius: 3px 10px 3px 10px;
+}
+/* line 75, ../src/styles/main.scss */
+form #submit:disabled {
+  color: #daffca;
+}
+/* line 79, ../src/styles/main.scss */
+form .valid {
+  border: 2px solid #46b816;
+  color: #46b816;
+}
+
+/* line 86, ../src/styles/main.scss */
+#results {
+  margin: 0 auto;
+  width: 90%;
+  display: none;
+}
+
+/* line 92, ../src/styles/main.scss */
+.billdetails {
+  margin-bottom: 15px;
+  color: #daffca;
+  background-color: #343ceb;
+  border-radius: 3px;
+}
+/* line 98, ../src/styles/main.scss */
+.billdetails h3 {
+  float: left;
+  margin: -2px;
+  color: #daffca;
+  line-height: 0.9em;
+  font-size: 3.6em;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+/* line 108, ../src/styles/main.scss */
+.billdetails table {
+  float: right;
+  width: 70%;
+  height: 100%;
+  color: #f88450;
+}
+/* line 114, ../src/styles/main.scss */
+.billdetails table tr {
+  height: 50%;
+}
+/* line 115, ../src/styles/main.scss */
+.billdetails table td {
+  width: 40%;
+  padding-right: 6%;
+}
+/* line 121, ../src/styles/main.scss */
+.billdetails .label {
+  text-align: right;
+}
+/* line 122, ../src/styles/main.scss */
+.billdetails .billinfo {
+  text-align: left;
+}
