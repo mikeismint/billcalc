@@ -6,29 +6,32 @@
 <head>
 	<meta http-equiv="Content-Type" content="application/xhtml+xml" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-	<title>Sky billing calculator</title>
+	<title>Billing calculator</title>
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
   <link href="./styles/normalize.css" rel="stylesheet" type="text/css" />
 	<link href="./styles/main.css" rel="stylesheet" type="text/css" />
+  <link href='http://fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
   <script type="text/javascript" src="./scripts/functions.js"></script>
   <script type="text/javascript" src="./scripts/Form.js"></script>
   <script type="text/javascript" src="./scripts/Skybill.js"></script>
   <script type="text/javascript" src="./scripts/main.js"></script>
   <!-- Google Analytics code -->
-  <script  type="text/javascript">
+  <!--<script  type="text/javascript">
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)}, i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
     ga('create', 'UA-51927646-1', 'mikeismint.github.io'); ga('send', 'pageview');
-  </script>
+  </script> -->
   <!-- END Google Anlytics code -->
 </head>
 
 <body>
-<p class='version'>v0.2a</p>
-<h1>Mikes Billing Calculator</h1>
+<div id="header" class="clearfix">
+  <h1>Billing Calculator</h1>
+  <p class='version'>v0.2a</p>
+</div>
 
 <form id="billform" action="javascript:displayResults();">
   <label for="tvcost">TV Package Price</label>
@@ -38,7 +41,7 @@
   <input id="tvdate" type="text" value="dd/mm/yy" />
 
   <label for="bbcost">Sky Talk & Broadband price</label>
-  <input id="bbcost" type="text" value="inc Line Rental" />
+  <input id="bbcost" type="text" value="inc. Line Rental" />
 
   <label for="bbdate">PL & BB Install date</label>
   <input id="bbdate" type="text" value="dd/mm/yy" />
@@ -53,21 +56,66 @@
   <h2>Customers First 3 bills</h2>
 
   <div class="billdetails clearfix">
-    <h3>First Bill</h3>
-    <div class="billcost" name="billcost"> <!-- content from displayResults() script --> </div>
-    <div class="billdate" name="billdate"> <!-- content from displayResults() script --> </div>
+    <h3>1st</h3>
+    <table>
+      <tr>
+        <td class="label">How much?</td>
+        <td> <div class="billinfo" name="billcost"> 
+            <!-- content from displayResults() script -->
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="label">When?</td>
+        <td> <div class="billinfo" name="billdate">
+            <!-- content from displayResults() script --> 
+          </div>
+        </td>
+      </tr>
+    </table>
   </div> <!-- billdetails -->
 
   <div class="billdetails clearfix">
-    <h3>Second Bill</h3>
-    <div class="billcost" name="billcost"> <!-- content from displayResults() script --> </div>
-    <div class="billdate" name="billdate"> <!-- content from displayResults() script --> </div>
+    <h3>2nd</h3>
+    <table>
+      <tr>
+        <td class="label">How much?</td>
+        <td> <div class="billinfo" name="billcost"> 
+            <!-- content from displayResults() script -->
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="label">When?</td>
+        <td> <div class="billinfo" name="billdate">
+            <!-- content from displayResults() script --> 
+          </div>
+        </td>
+      </tr>
+    </table>
   </div> <!-- billdetails -->
 
   <div class="billdetails clearfix">
-    <h3>Third Bill</h3>
-    <div class="billcost" name="billcost"> <!-- content from displayResults() script --> </div>
-    <div class="billdate" name="billdate"> <!-- content from displayResults() script --> </div>
+    <h3>3rd</h3>
+    <table>
+      <tr>
+        <td class="label">How much?</td>
+        <td> <div class="billinfo" name="billcost"> 
+            <!-- content from displayResults() script -->
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="label">When?</td>
+        <td> <div class="billinfo" name="billdate">
+            <!-- content from displayResults() script --> 
+          </div>
+        </td>
+      </tr>
+    </table>
   </div> <!-- billdetails -->
   <input id="reset" type="button" value="Reset" />
 </div> <!-- results -->
