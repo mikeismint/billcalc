@@ -6,7 +6,6 @@ addEvent(window, 'load', function() {
   submitbutton.disabled = 'disabled';
 
   function checkForm() {
-    //var inputs = myForm.getElementsByTagName('input');
     if (Form.validateCurrency(inputs[0])) {
       Skybill.TV.cost=inputs[0].value;
       if (Form.validateDate(inputs[1])) {
@@ -15,7 +14,7 @@ addEvent(window, 'load', function() {
           Skybill.BB.cost=inputs[2].value;
           if (Form.validateDate(inputs[3])) {
             Skybill.BB.inDate=inputs[3].value;
-            if (Form.validateDate(inputs[4])) {
+            if (Form.validateNumber(inputs[4], Form.bdate)) {
               Skybill.prefBillDate=inputs[4].value;
             }
 
@@ -53,7 +52,7 @@ addEvent(window, 'load', function() {
   addEvent(inputs[3], 'focus', function() {
     if (this.value === 'dd/mm/yy') { this.value = ''; }
   });
-  
+
   addEvent(inputs[0], 'blur', function() {
     if (this.value === '') { this.value = 'Enter TV price only'; }
   });
@@ -75,7 +74,6 @@ addEvent(window, 'load', function() {
 }); /*** addEvent - window.onload ***/
 
 function displayResults() {
-
   var costEl = document.getElementsByName('billcost');
   var dateEl = document.getElementsByName('billdate');
 
@@ -86,6 +84,7 @@ function displayResults() {
   costEl[2].innerHTML = "&#163;"+Skybill.thirdBill.cost();
   dateEl[2].innerHTML = Skybill.thirdBill.date();
 
-  document.getElementById('billform').style.display = 'none';
+  //document.getElementById('billform').style.display = 'none';
   document.getElementById('results').style.display = 'block';
+  return true;
 }; /*** displayResults ***/
