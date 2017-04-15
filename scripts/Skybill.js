@@ -63,8 +63,24 @@ var Skybill = {
      return (costPerDay * days);
   },
 
-  /********************* PUBLIC METHODS *********************/
+  recBillDate:function() {
+    /* Precondition: none
+     * Postcondition: returns recurring billing date between 1st
+     *                and 28th as string */
+    var d = Skybill.parseDate(Skybill.TV.inDate);
+    d = d.getDate();
+    if (Skybill.prefBillDate !== '') {
+      return Skybill.prefBillDate;
+    }
+    switch (d) {
+      case 29: return '26';
+      case 30: return '27';
+      case 31: return '28';
+      default: return d.toString();
+    }
+  },
 
+  /********************* PUBLIC METHODS *********************/
   firstBill: {
     costs:function() {
       return (+Skybill.TV.cost).toFixed(2);
@@ -82,6 +98,7 @@ var Skybill = {
       var pr = Skybill.proRata(Skybill.BB.cost, dd);
       return (+Skybill.TV.cost + +Skybill.BB.cost + +pr).toFixed(2);
     },
+
     date:function() {
       var d = Skybill.parseDate(Skybill.TV.inDate);
       if (Skybill.recBillDate() < d.getDate()) {
@@ -104,20 +121,5 @@ var Skybill = {
       return Skybill.dateToString(d);
     },
   },
-
-  recBillDate:function() {
-    var d = Skybill.parseDate(Skybill.TV.inDate);
-    d = d.getDate();
-    if (Skybill.prefBillDate !== '') {
-      return Skybill.prefBillDate;
-    }
-    switch (d) {
-      case 29: return '26';
-      case 30: return '27';
-      case 31: return '28';
-      default: return d.toString();
-    }
-  },
-
 }
 
